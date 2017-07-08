@@ -14,7 +14,7 @@ public class FileDownload {
 		URL link = new URL("https://upload.wikimedia.org/wikipedia/en/6/6b/Batman_Eternal.jpg");
 		System.out.println("This will return '/wikipedia/en/6/6b/Batman_Eternal.jpg:' " + link.getFile());
 		System.out.print("This will return 'Batman_Eternal.jpg': " + FilenameUtils.getName(link.getPath()));
-		File file = new File("C://Users//marcb//Desktop//temp//" + FilenameUtils.getName(link.getPath()));
+		File file = new File("D://Projects//Programming//Selenium-through-excelData//downloads//" + FilenameUtils.getName(link.getPath()));
 		FileUtils.copyURLToFile(link, file);
 
 	}
