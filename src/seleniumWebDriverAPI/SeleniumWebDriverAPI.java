@@ -7,14 +7,19 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class SeleniumWebDriverAPI {
 
 	public static void main (String[] args) {
-		WebDriver driver = getChromeDriver(); //should be part of test fixtures (@BeforeClass -> setUp() method)
-		driver.get("https://www.google.com");
 		
+		boolean incognito = true; //modify for incognito mode
+
+		WebDriver driver = getChromeDriver(incognito); //should be part of test fixtures (@BeforeClass -> setUp() method)
+		driver.get("https://www.google.com");
+
 		WebElement element = driver.findElement(By.className("gb_P"));
 		
 		System.out.println(element.getText());
@@ -51,11 +56,21 @@ public class SeleniumWebDriverAPI {
 		
 	}
 	
-	private static ChromeDriver getChromeDriver() {
+	//for normal window
+	private static ChromeDriver getChromeDriver(boolean incognito) {
 		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\marcb\\Desktop\\Applications4Work\\chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", "D:\\Projects\\Programming\\dependencies\\seleniumAndDownloader\\chromedriver.exe");
-		return new ChromeDriver();
+		if(incognito == false) {
+			return new ChromeDriver();
+		} else {
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("-incognito");
+			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+			return new ChromeDriver(capabilities);
+		}
 	}
+
 	
 	private static void delay2sec() {
 		try {

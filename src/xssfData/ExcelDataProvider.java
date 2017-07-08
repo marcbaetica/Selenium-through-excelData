@@ -1,6 +1,6 @@
 package xssfData;
 
-//dependencies: poi-ooxml-3.15.jar
+//dependencies: poi-ooxml-3.15.jar and others (see lib)
 import java.io.FileInputStream;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
