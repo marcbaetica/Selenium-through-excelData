@@ -53,7 +53,7 @@ public class SeleniumWebDriverAPI {
 	
 	private static ChromeDriver getChromeDriver() {
 		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\marcb\\Desktop\\Applications4Work\\chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver", "D:\\Projects\\Programming\\dependencies\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Projects\\Programming\\dependencies\\seleniumAndDownloader\\chromedriver.exe");
 		return new ChromeDriver();
 	}
 	

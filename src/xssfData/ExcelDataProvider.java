@@ -14,8 +14,9 @@ public class ExcelDataProvider {
 		XSSFWorkbook excelWBook;
 		XSSFSheet excelWSheet;
 		XSSFCell excelCell;
+		String cellData;
 		
-		String path = "src/xssfData/Book1.xlsx";
+		String path = "D://Projects//Programming//Selenium-through-excelData//downloads//Book1.xlsx";
 		String sheetName = "Sheet1";
 		
 		try {
@@ -24,12 +25,15 @@ public class ExcelDataProvider {
 			excelWBook = new XSSFWorkbook(excelFile);
 			excelWSheet = excelWBook.getSheet(sheetName);
 			
-			excelCell = excelWSheet.getRow(1).getCell(0);
-			
-			String cellData = excelCell.getStringCellValue();
-			
-			System.out.println("Excell cell: " + excelCell + " while the cell data is: " + cellData);
-			
+			for (int i=0; i<=1; i++) {
+				for (int x=0; x<=1; x++) {
+						
+					excelCell = excelWSheet.getRow(i).getCell(x);
+					cellData = excelCell.getStringCellValue();
+
+					System.out.println("Excell cell " + excelCell + " has cell data: " + cellData);
+				}
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
